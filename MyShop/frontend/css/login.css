@@ -1,0 +1,120 @@
+/* login.css */
+/* Styles for the Login page only. */
+/* Matches the same look and feel as register.css. */
+/* Simple, clean, and easy to read. */
+
+/* ── Page Background and Font ── */
+body {
+    background-color: #f5f5f5; /* Light grey background */
+    font-family: Georgia, serif; /* Simple readable font */
+    display: flex;               /* Flexbox to center content */
+    flex-direction: column;      /* Stack items vertically */
+    align-items: center;         /* Center items horizontally */
+    padding-top: 60px;           /* More space from top (login has fewer fields) */
+    margin: 0;                   /* Remove default margin */
+}
+
+/* ── Logo ── */
+/* Same logo style used on register page */
+.logo {
+    font-size: 2rem;             /* Large logo text */
+    font-weight: bold;           /* Bold */
+    margin-bottom: 10px;         /* Space below logo */
+    letter-spacing: 1px;         /* Small letter spacing */
+}
+
+/* "My" in dark color */
+.logo-my {
+    color: #222222;              /* Dark grey */
+}
+
+/* "Shop" in accent red */
+.logo-shop {
+    color: #c0392b;              /* Red accent */
+}
+
+/* ── Page Title ── */
+h2 {
+    color: #333333;              /* Dark grey */
+    margin-bottom: 20px;         /* Space below title */
+    font-size: 1.4rem;           /* Slightly larger than normal */
+}
+
+/* ── Form Container ── */
+form {
+    background-color: #ffffff;   /* White card */
+    padding: 30px 40px;          /* Inner padding */
+    border: 1px solid #dddddd;   /* Thin grey border */
+    border-radius: 6px;          /* Slightly rounded corners */
+    width: 100%;                 /* Responsive width */
+    max-width: 400px;            /* Max width 400px */
+}
+
+/* ── Labels ── */
+label {
+    font-size: 0.9rem;           /* Small label text */
+    color: #555555;              /* Medium grey */
+}
+
+/* ── Inputs ── */
+input[type="email"],
+input[type="password"] {
+    width: 100%;                 /* Full width */
+    padding: 8px 10px;           /* Inner padding */
+    border: 1px solid #cccccc;   /* Light grey border */
+    border-radius: 4px;          /* Rounded corners */
+    font-size: 0.95rem;          /* Normal size */
+    box-sizing: border-box;      /* Width includes padding */
+    margin-top: 4px;             /* Space between label and input */
+}
+
+/* Red border when input is focused */
+input:focus {
+    outline: none;               /* Remove default outline */
+    border-color: #c0392b;       /* Accent red border on focus */
+}
+
+/* ── Submit Button ── */
+button[type="submit"] {
+    width: 100%;                 /* Full width */
+    padding: 10px;               /* Comfortable size */
+    background-color: #c0392b;   /* Red button */
+    color: #ffffff;              /* White text */
+    border: none;                /* No border */
+    border-radius: 4px;          /* Rounded */
+    font-size: 1rem;             /* Normal size */
+    cursor: pointer;             /* Pointer cursor */
+    margin-top: 10px;            /* Space above button */
+}
+
+/* Darker red when hovered */
+button[type="submit"]:hover {
+    background-color: #a93226;   /* Darker on hover */
+}
+
+/* ── Error Message ── */
+/* Shown by login.js when Flask returns an error response */
+#error-message {
+    color: #c0392b;              /* Red error text */
+    font-size: 0.9rem;           /* Slightly smaller */
+    margin-top: 12px;            /* Space above message */
+    text-align: center;          /* Centered */
+}
+
+/* ── Switch Link (Don't have account?) ── */
+.switch-link {
+    margin-top: 15px;            /* Space above */
+    font-size: 0.9rem;           /* Smaller text */
+    color: #555555;              /* Grey */
+}
+
+/* Link styling */
+.switch-link a {
+    color: #c0392b;              /* Red to match accent */
+    text-decoration: none;       /* No underline */
+}
+
+/* Underline on hover */
+.switch-link a:hover {
+    text-decoration: underline;  /* Underline when hovered */
+}

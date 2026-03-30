@@ -1,0 +1,71 @@
+<!-- login.html -->
+<!-- This page shows the login form. -->
+<!-- It uses login.js to send data to Flask via fetch (no page reload). -->
+<!-- Flask returns JSON: { status: "success" } or { status: "error", message: "..." } -->
+<!-- On success → login.js redirects to /home -->
+<!-- On error   → login.js shows the error message in the page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - MyShop</title>
+    <!-- Load login CSS from the css folder -->
+    <link rel="stylesheet" href="/frontend/css/login.css">
+</head>
+<body>
+
+    <!-- ── Logo ── -->
+    <!-- Same logo shown on all pages -->
+    <div class="logo">
+        <span class="logo-my">My</span><span class="logo-shop">Shop</span>
+    </div>
+
+    <!-- ── Page Title ── -->
+    <h2>Welcome Back</h2>
+
+    <!-- ── Login Form ── -->
+    <!-- No action= here because login.js handles the submit via fetch -->
+    <form id="loginForm">
+
+        <!-- Email Input -->
+        <label for="email">Email:</label><br>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@gmail.com"
+            required
+        ><br><br>
+
+        <!-- Password Input -->
+        <label for="password">Password:</label><br>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Your password"
+            required
+        ><br><br>
+
+        <!-- Submit button triggers the fetch in login.js -->
+        <button type="submit">Login</button>
+
+    </form>
+
+    <!-- ── Error Message Area ── -->
+    <!-- login.js fills this if Flask returns an error -->
+    <p id="error-message"></p>
+
+    <!-- ── Link to Register ── -->
+    <!-- Lets new users go to the register page -->
+    <p class="switch-link">
+        Don't have an account?
+        <a href="/register">Register here</a>
+    </p>
+
+    <!-- Load login.js AFTER the form elements exist in the page -->
+    <script src="/frontend/js/login.js"></script>
+
+</body>
+</html>

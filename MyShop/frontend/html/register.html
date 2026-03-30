@@ -1,0 +1,111 @@
+<!-- register.html -->
+<!-- This page shows the registration form. -->
+<!-- It validates input on the frontend before sending data to Flask. -->
+<!-- On success, Flask redirects here to /login. -->
+<!-- On error (email exists or password mismatch), Flask redirects back with ?error= in the URL. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - MyShop</title>
+    <!-- Load register CSS from the css folder -->
+    <link rel="stylesheet" href="/frontend/css/register.css">
+</head>
+<body>
+
+    <!-- ── Logo ── -->
+    <!-- Shown on every page so the user always sees the shop name -->
+    <div class="logo">
+        <span class="logo-my">My</span><span class="logo-shop">Shop</span>
+    </div>
+
+    <!-- ── Page Title ── -->
+    <h2>Create an Account</h2>
+
+    <!-- ── Error Message Area ── -->
+    <!-- This paragraph is filled by the script below if there is an error in the URL -->
+    <p id="error-message"></p>
+
+    <!-- ── Read Error from URL and Show It ── -->
+    <script>
+        // Get the 'error' value from the URL query string
+        // Example URL: /register?error=email_exists
+        const params = new URLSearchParams(window.location.search);
+        const error  = params.get('error');
+
+        // Find the error paragraph element
+        const msg = document.getElementById('error-message');
+
+        // Show the correct message based on the error type
+        if (error === 'email_exists') {
+            msg.textContent = 'This email is already registered. Please login.';
+        } else if (error === 'password_mismatch') {
+            msg.textContent = 'Passwords do not match. Please try again.';
+        }
+    </script>
+
+    <!-- ── Registration Form ── -->
+    <!-- Sends POST request to Flask /register route -->
+    <form action="/register" method="POST">
+
+        <!-- Name: letters and spaces only -->
+        <label for="name">Name:</label><br>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your full name"
+            pattern="[A-Za-z ]+"
+            title="Name must contain letters only (no numbers or symbols)"
+            required
+        ><br><br>
+
+        <!-- Email: only gmail, yahoo, or outlook allowed -->
+        <label for="email">Email:</label><br>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@gmail.com"
+            pattern="^[a-zA-Z0-9._%+\-]+@(gmail|yahoo|outlook)\.com$"
+            title="Use a valid email: gmail, yahoo, or outlook only"
+            required
+        ><br><br>
+
+        <!-- Password: at least 8 characters, must include letters and numbers -->
+        <label for="password">Password:</label><br>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Min 8 chars, letters + numbers"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+            title="Password must be at least 8 characters and include letters and numbers"
+            required
+        ><br><br>
+
+        <!-- Confirm Password: must match the password above (checked in Flask) -->
+        <label for="confirm_password">Confirm Password:</label><br>
+        <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Repeat your password"
+            required
+        ><br><br>
+
+        <!-- Submit button sends the form to Flask -->
+        <button type="submit">Register</button>
+
+    </form>
+
+    <!-- ── Link to Login ── -->
+    <!-- Lets existing users go to the login page directly -->
+    <p class="switch-link">
+        Already have an account?
+        <a href="/login">Login here</a>
+    </p>
+
+</body>
+</html>

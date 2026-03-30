@@ -1,0 +1,121 @@
+/* register.css */
+/* Styles for the Register page only. */
+/* Clean and simple - no extra effects. */
+/* Uses the same logo style as login.css for consistency. */
+
+/* ── Page Background and Font ── */
+body {
+    background-color: #f5f5f5; /* Light grey background, easy on the eyes */
+    font-family: Georgia, serif; /* Simple readable font */
+    display: flex;               /* Use flexbox to center everything */
+    flex-direction: column;      /* Stack items vertically */
+    align-items: center;         /* Center horizontally */
+    padding-top: 40px;           /* Space from top of page */
+    margin: 0;                   /* Remove default body margin */
+}
+
+/* ── Logo ── */
+/* The MyShop logo shown at the top of every page */
+.logo {
+    font-size: 2rem;             /* Large text for logo */
+    font-weight: bold;           /* Bold weight */
+    margin-bottom: 10px;         /* Space below the logo */
+    letter-spacing: 1px;         /* Small spacing between letters */
+}
+
+/* "My" part of the logo in dark color */
+.logo-my {
+    color: #222222;              /* Dark grey */
+}
+
+/* "Shop" part of the logo in accent color */
+.logo-shop {
+    color: #c0392b;              /* Red accent to make it stand out */
+}
+
+/* ── Page Title ── */
+h2 {
+    color: #333333;              /* Dark grey text */
+    margin-bottom: 20px;         /* Space below the title */
+    font-size: 1.4rem;           /* Slightly larger than normal text */
+}
+
+/* ── Form Container ── */
+form {
+    background-color: #ffffff;   /* White box for the form */
+    padding: 30px 40px;          /* Space inside the box */
+    border: 1px solid #dddddd;   /* Thin grey border */
+    border-radius: 6px;          /* Slightly rounded corners */
+    width: 100%;                 /* Fill available width */
+    max-width: 400px;            /* But no wider than 400px */
+}
+
+/* ── Labels ── */
+label {
+    font-size: 0.9rem;           /* Slightly small label text */
+    color: #555555;              /* Medium grey */
+}
+
+/* ── Text Inputs ── */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;                 /* Full width inside the form */
+    padding: 8px 10px;           /* Space inside the input field */
+    border: 1px solid #cccccc;   /* Light grey border */
+    border-radius: 4px;          /* Slightly rounded */
+    font-size: 0.95rem;          /* Normal readable size */
+    box-sizing: border-box;      /* Include padding in the width */
+    margin-top: 4px;             /* Small space between label and input */
+}
+
+/* Highlight the input when user clicks on it */
+input:focus {
+    outline: none;               /* Remove default browser outline */
+    border-color: #c0392b;       /* Red border on focus (matches logo) */
+}
+
+/* ── Submit Button ── */
+button[type="submit"] {
+    width: 100%;                 /* Full width button */
+    padding: 10px;               /* Comfortable click area */
+    background-color: #c0392b;   /* Red background (matches logo accent) */
+    color: #ffffff;              /* White text */
+    border: none;                /* No border */
+    border-radius: 4px;          /* Slightly rounded */
+    font-size: 1rem;             /* Normal size text */
+    cursor: pointer;             /* Show pointer cursor on hover */
+    margin-top: 10px;            /* Space above the button */
+}
+
+/* Slightly darker on hover for feedback */
+button[type="submit"]:hover {
+    background-color: #a93226;   /* Darker red when hovered */
+}
+
+/* ── Error Message ── */
+/* Shown when Flask redirects back with ?error= in the URL */
+#error-message {
+    color: #c0392b;              /* Red to show it's an error */
+    font-size: 0.9rem;           /* Slightly smaller text */
+    margin-bottom: 10px;         /* Space below the message */
+    text-align: center;          /* Center-align the error text */
+}
+
+/* ── Switch Link (Already have account?) ── */
+.switch-link {
+    margin-top: 15px;            /* Space above the link paragraph */
+    font-size: 0.9rem;           /* Slightly smaller text */
+    color: #555555;              /* Medium grey */
+}
+
+/* Style the anchor link */
+.switch-link a {
+    color: #c0392b;              /* Red to match the accent */
+    text-decoration: none;       /* Remove underline */
+}
+
+/* Underline the link on hover */
+.switch-link a:hover {
+    text-decoration: underline;  /* Show underline when hovered */
+}
