@@ -1,0 +1,162 @@
+<!-- admin.html -->
+<!-- This is the Admin Dashboard page for MyShop. -->
+<!-- It allows the admin to manage products, categories, and other admins. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">                          <!-- character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- responsive -->
+    <title>MyShop - Admin Dashboard</title>         <!-- page title -->
+    <link rel="stylesheet" href="/frontend/css/admin.css">  <!-- link stylesheet -->
+</head>
+<body>
+
+    <!-- ── Sidebar ─────────────────────────────────────────────────────────── -->
+    <div class="sidebar">
+        <div class="logo">MyShop</div>              <!-- store logo -->
+        <ul>
+            <!-- each link shows a different section -->
+            <li><a href="#" class="active" onclick="showSection('products')">Products</a></li>
+            <li><a href="#" onclick="showSection('add-product')">Add Product</a></li>
+            <li><a href="#" onclick="showSection('categories')">Categories</a></li>
+            <li><a href="#" onclick="showSection('admins')">Admins</a></li>
+        </ul>
+    </div>
+
+    <!-- ── Main Content ─────────────────────────────────────────────────────── -->
+    <div class="main-content">
+
+        <!-- Top Bar -->
+        <div class="topbar">Admin Dashboard</div>   <!-- page header -->
+
+        <!-- ── Section: View Products ──────────────────────────────────────── -->
+        <div id="products" class="section active">  <!-- products section (shown by default) -->
+            <h2>All Products</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>              <!-- image column -->
+                        <th>Name</th>               <!-- name column -->
+                        <th>Category</th>           <!-- category column -->
+                        <th>Price</th>              <!-- price column -->
+                        <th>Quantity</th>           <!-- quantity column -->
+                        <th>Action</th>             <!-- delete button column -->
+                    </tr>
+                </thead>
+                <tbody id="products-table-body">
+                    <!-- products will be loaded here by admin.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ── Section: Add Product ────────────────────────────────────────── -->
+        <div id="add-product" class="section">      <!-- add product section -->
+            <h2>Add New Product</h2>
+
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" id="p-name" placeholder="Enter product name">  <!-- name input -->
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea id="p-desc" rows="3" placeholder="Enter description"></textarea>  <!-- description -->
+            </div>
+
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" id="p-price" placeholder="0.00">  <!-- price input -->
+            </div>
+
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" id="p-qty" placeholder="0">  <!-- quantity input -->
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select id="p-category">            <!-- category dropdown -->
+                    <option value="">Select category</option>
+                    <!-- options loaded by admin.js -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Product Image</label>
+                <input type="file" id="p-image" accept="image/*">  <!-- image upload -->
+            </div>
+
+            <button class="btn" onclick="addProduct()">Add Product</button>  <!-- submit button -->
+            <div class="msg" id="product-msg"></div>  <!-- success/error message -->
+        </div>
+
+        <!-- ── Section: Categories ─────────────────────────────────────────── -->
+        <div id="categories" class="section">       <!-- categories section -->
+            <h2>Categories</h2>
+
+            <div class="form-group">
+                <label>New Category Name</label>
+                <input type="text" id="cat-name" placeholder="Enter category name">  <!-- category input -->
+            </div>
+
+            <button class="btn" onclick="addCategory()">Add Category</button>  <!-- add button -->
+            <div class="msg" id="category-msg"></div>  <!-- success/error message -->
+
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>                  <!-- id column -->
+                        <th>Category Name</th>      <!-- name column -->
+                    </tr>
+                </thead>
+                <tbody id="categories-table-body">
+                    <!-- categories loaded by admin.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ── Section: Admins ─────────────────────────────────────────────── -->
+        <div id="admins" class="section">           <!-- admins section -->
+            <h2>Manage Admins</h2>
+
+            <!-- Add Admin Form -->
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="a-name" placeholder="Admin name">  <!-- admin name -->
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="a-email" placeholder="Admin email">  <!-- admin email -->
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="a-password" placeholder="Password">  <!-- admin password -->
+            </div>
+
+            <button class="btn" onclick="addAdmin()">Add Admin</button>  <!-- add admin button -->
+            <div class="msg" id="admin-msg"></div>  <!-- success/error message -->
+
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>               <!-- name column -->
+                        <th>Email</th>              <!-- email column -->
+                        <th>Action</th>             <!-- delete column -->
+                    </tr>
+                </thead>
+                <tbody id="admins-table-body">
+                    <!-- admins loaded by admin.js -->
+                </tbody>
+            </table>
+        </div>
+
+    </div><!-- end main-content -->
+
+    <script src="/frontend/js/admin.js"></script>   <!-- link admin JS file -->
+</body>
+</html>

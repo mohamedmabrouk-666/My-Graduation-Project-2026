@@ -23,13 +23,15 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
         body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}` // Form data as URL-encoded string
     });
 
+
+
     // Parse the JSON response Flask sends back
     // Flask returns: { status: "success" } or { status: "error", message: "..." }
     const data = await response.json();
 
     // If login was successful, go to the home page
     if (data.status === "success") {
-        window.location.href = "/home";  // Redirect to home (page to be built later)
+        window.location.href = data.redirect;  // Redirect to home (page to be built later)
     }
 
     // If login failed, show the error message inside the page

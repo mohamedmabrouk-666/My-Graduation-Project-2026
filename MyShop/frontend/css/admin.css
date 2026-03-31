@@ -1,0 +1,201 @@
+/* admin.css */
+/* This file styles the admin dashboard page for MyShop. */
+/* It uses the same red accent color as the rest of the project. */
+
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+* {
+    margin: 0;                        /* remove default margin */
+    padding: 0;                       /* remove default padding */
+    box-sizing: border-box;           /* include padding in width calculation */
+    font-family: Arial, sans-serif;   /* set default font */
+}
+
+body {
+    background-color: #f4f4f4;        /* light grey background */
+    color: #333;                      /* dark text color */
+}
+
+/* ─── Sidebar ──────────────────────────────────────────────────────────────── */
+.sidebar {
+    width: 220px;                     /* fixed sidebar width */
+    background-color: #1a1a1a;        /* dark background */
+    height: 100vh;                    /* full screen height */
+    position: fixed;                  /* stay on screen while scrolling */
+    top: 0;                           /* stick to top */
+    left: 0;                          /* stick to left */
+    padding-top: 20px;                /* space at top */
+}
+
+.sidebar .logo {
+    text-align: center;               /* center the logo */
+    font-size: 22px;                  /* logo font size */
+    font-weight: bold;                /* bold text */
+    color: #c0392b;                   /* red accent color */
+    padding: 15px 0;                  /* vertical padding */
+    border-bottom: 1px solid #333;    /* separator line */
+    margin-bottom: 10px;              /* space below logo */
+}
+
+.sidebar ul {
+    list-style: none;                 /* remove bullet points */
+    padding: 0;                       /* no padding */
+}
+
+.sidebar ul li a {
+    display: block;                   /* full width clickable area */
+    padding: 14px 20px;               /* spacing inside each link */
+    color: #ccc;                      /* light grey text */
+    text-decoration: none;            /* no underline */
+    font-size: 15px;                  /* text size */
+    transition: background 0.2s;      /* smooth hover effect */
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #c0392b;        /* red background on hover/active */
+    color: #fff;                      /* white text */
+}
+
+/* ─── Main Content ─────────────────────────────────────────────────────────── */
+.main-content {
+    margin-left: 220px;               /* offset by sidebar width */
+    padding: 30px;                    /* inner spacing */
+}
+
+/* ─── Top Bar ──────────────────────────────────────────────────────────────── */
+.topbar {
+    background-color: #fff;           /* white background */
+    padding: 15px 20px;               /* inner spacing */
+    border-radius: 8px;               /* rounded corners */
+    margin-bottom: 25px;              /* space below */
+    font-size: 18px;                  /* text size */
+    font-weight: bold;                /* bold */
+    color: #1a1a1a;                   /* dark text */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);  /* soft shadow */
+}
+
+/* ─── Section ──────────────────────────────────────────────────────────────── */
+.section {
+    display: none;                    /* hide all sections by default */
+    background-color: #fff;           /* white card */
+    padding: 25px;                    /* inner spacing */
+    border-radius: 8px;               /* rounded corners */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);  /* soft shadow */
+    margin-bottom: 20px;              /* space below */
+}
+
+.section.active {
+    display: block;                   /* show active section */
+}
+
+.section h2 {
+    font-size: 18px;                  /* section title size */
+    margin-bottom: 20px;              /* space below title */
+    color: #c0392b;                   /* red accent */
+    border-bottom: 2px solid #f0f0f0; /* separator line */
+    padding-bottom: 10px;             /* space before line */
+}
+
+/* ─── Form ─────────────────────────────────────────────────────────────────── */
+.form-group {
+    margin-bottom: 15px;              /* space between form fields */
+}
+
+.form-group label {
+    display: block;                   /* label on its own line */
+    margin-bottom: 6px;               /* space below label */
+    font-size: 14px;                  /* label size */
+    color: #555;                      /* grey label text */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;                      /* full width */
+    padding: 10px 12px;               /* inner spacing */
+    border: 1px solid #ddd;           /* light border */
+    border-radius: 6px;               /* rounded corners */
+    font-size: 14px;                  /* text size */
+    outline: none;                    /* remove default outline */
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #c0392b;            /* red border on focus */
+}
+
+/* ─── Button ───────────────────────────────────────────────────────────────── */
+.btn {
+    background-color: #c0392b;        /* red button */
+    color: #fff;                      /* white text */
+    border: none;                     /* no border */
+    padding: 10px 22px;               /* button spacing */
+    border-radius: 6px;               /* rounded corners */
+    cursor: pointer;                  /* pointer cursor */
+    font-size: 14px;                  /* text size */
+    transition: background 0.2s;      /* smooth hover */
+}
+
+.btn:hover {
+    background-color: #a93226;        /* darker red on hover */
+}
+
+/* ─── Table ────────────────────────────────────────────────────────────────── */
+table {
+    width: 100%;                      /* full width table */
+    border-collapse: collapse;        /* remove gaps between cells */
+    font-size: 14px;                  /* text size */
+}
+
+table th {
+    background-color: #f9f9f9;        /* light grey header */
+    padding: 10px 12px;               /* cell spacing */
+    text-align: left;                 /* align text left */
+    border-bottom: 2px solid #eee;    /* header separator */
+    color: #555;                      /* grey text */
+}
+
+table td {
+    padding: 10px 12px;               /* cell spacing */
+    border-bottom: 1px solid #f0f0f0; /* row separator */
+    vertical-align: middle;           /* center vertically */
+}
+
+table tr:hover {
+    background-color: #fdf5f5;        /* light red on hover */
+}
+
+/* ─── Delete Button in Table ───────────────────────────────────────────────── */
+.btn-delete {
+    background-color: #e74c3c;        /* red delete button */
+    color: #fff;                      /* white text */
+    border: none;                     /* no border */
+    padding: 6px 14px;                /* small button */
+    border-radius: 5px;               /* rounded */
+    cursor: pointer;                  /* pointer cursor */
+    font-size: 13px;                  /* smaller text */
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;        /* darker on hover */
+}
+
+/* ─── Message ──────────────────────────────────────────────────────────────── */
+.msg {
+    margin-top: 12px;                 /* space above message */
+    font-size: 14px;                  /* text size */
+    color: #27ae60;                   /* green for success */
+}
+
+.msg.error {
+    color: #c0392b;                   /* red for error */
+}
+
+/* ─── Product Image in Table ───────────────────────────────────────────────── */
+.product-img {
+    width: 55px;                      /* small image width */
+    height: 55px;                     /* small image height */
+    object-fit: cover;                /* crop to fit */
+    border-radius: 5px;               /* rounded corners */
+}
