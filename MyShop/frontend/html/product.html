@@ -1,0 +1,27 @@
+<!-- product.html -->
+<!-- This page shows the full details of a single product. -->
+<!-- It receives the product id from the URL (?id=...) and loads data from the backend. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">                                      <!-- character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- responsive -->
+    <title>MyShop - Product</title>                             <!-- page title -->
+    <link rel="stylesheet" href="/frontend/css/product.css">    <!-- link stylesheet -->
+</head>
+<body>
+
+    <!-- ── Navbar ──────────────────────────────────────────────────────────── -->
+    <nav class="navbar">
+        <a href="/home" class="logo">MyShop</a>                 <!-- logo links to home -->
+    </nav>
+
+    <!-- ── Product Container ───────────────────────────────────────────────── -->
+    <div class="product-container" id="product-container">
+        <!-- product details loaded here by product.js -->
+    </div>
+
+    <script src="/frontend/js/product.js"></script>             <!-- link product JS -->
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* product.css */
+/* Styles for the single product details page. */
+/* Shows product image, details, and action buttons. */
+
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+* {
+    margin: 0;                          /* remove default margin */
+    padding: 0;                         /* remove default padding */
+    box-sizing: border-box;             /* include padding in width */
+    font-family: Arial, sans-serif;     /* default font */
+}
+
+body {
+    background-color: #f5f5f5;          /* light grey background */
+    color: #333;                        /* dark text */
+}
+
+/* ─── Navbar ───────────────────────────────────────────────────────────────── */
+.navbar {
+    background-color: #1a1a1a;          /* dark navbar */
+    padding: 14px 30px;                 /* inner spacing */
+    display: flex;                      /* side by side */
+    justify-content: space-between;     /* logo left, links right */
+    align-items: center;                /* vertically centered */
+}
+
+.navbar .logo {
+    color: #c0392b;                     /* red logo */
+    font-size: 22px;                    /* logo size */
+    font-weight: bold;                  /* bold */
+    text-decoration: none;              /* no underline */
+}
+
+/* ─── Product Container ────────────────────────────────────────────────────── */
+.product-container {
+    max-width: 800px;                   /* max width */
+    margin: 40px auto;                  /* center horizontally */
+    background-color: #fff;             /* white card */
+    border-radius: 10px;                /* rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);  /* soft shadow */
+    overflow: hidden;                   /* clip image corners */
+    display: flex;                      /* image + details side by side */
+}
+
+/* ─── Product Image ────────────────────────────────────────────────────────── */
+.product-container .product-image {
+    width: 350px;                       /* fixed image width */
+    min-height: 350px;                  /* minimum height */
+    object-fit: cover;                  /* crop to fit */
+    flex-shrink: 0;                     /* don't shrink */
+}
+
+/* ─── Product Details ──────────────────────────────────────────────────────── */
+.product-details {
+    padding: 30px;                      /* inner spacing */
+    display: flex;                      /* column layout */
+    flex-direction: column;             /* stack vertically */
+    justify-content: center;            /* center vertically */
+    gap: 12px;                          /* space between elements */
+}
+
+.product-details .category-tag {
+    font-size: 12px;                    /* small text */
+    color: #999;                        /* grey */
+    text-transform: uppercase;          /* all caps */
+    letter-spacing: 1px;                /* spaced letters */
+}
+
+.product-details h1 {
+    font-size: 24px;                    /* product name size */
+    color: #1a1a1a;                     /* dark text */
+}
+
+.product-details .price {
+    font-size: 22px;                    /* price size */
+    font-weight: bold;                  /* bold */
+    color: #c0392b;                     /* red price */
+}
+
+.product-details .description {
+    font-size: 14px;                    /* text size */
+    color: #666;                        /* grey text */
+    line-height: 1.6;                   /* line height for readability */
+}
+
+.product-details .quantity {
+    font-size: 14px;                    /* text size */
+    color: #555;                        /* grey */
+}
+
+.product-details .quantity span {
+    font-weight: bold;                  /* bold quantity number */
+    color: #27ae60;                     /* green if available */
+}
+
+/* ─── Action Buttons ───────────────────────────────────────────────────────── */
+.action-buttons {
+    display: flex;                      /* side by side buttons */
+    gap: 10px;                          /* space between */
+    margin-top: 10px;                   /* space above */
+}
+
+.btn-back {
+    padding: 10px 20px;                 /* button spacing */
+    background-color: #f0f0f0;          /* light grey */
+    color: #333;                        /* dark text */
+    border: none;                       /* no border */
+    border-radius: 6px;                 /* rounded */
+    cursor: pointer;                    /* pointer cursor */
+    font-size: 14px;                    /* text size */
+    text-decoration: none;              /* no underline */
+    display: inline-block;              /* inline block */
+}
+
+.btn-back:hover {
+    background-color: #ddd;             /* darker on hover */
+}
+
+.btn-cart {
+    padding: 10px 24px;                 /* button spacing */
+    background-color: #c0392b;          /* red button */
+    color: #fff;                        /* white text */
+    border: none;                       /* no border */
+    border-radius: 6px;                 /* rounded */
+    cursor: pointer;                    /* pointer cursor */
+    font-size: 14px;                    /* text size */
+}
+
+.btn-cart:hover {
+    background-color: #a93226;          /* darker on hover */
+}
+
+/* ─── Out of Stock ─────────────────────────────────────────────────────────── */
+.out-of-stock {
+    color: #e74c3c;                     /* red text */
+    font-weight: bold;                  /* bold */
+    font-size: 14px;                    /* text size */
+}
