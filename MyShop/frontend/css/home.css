@@ -1,0 +1,179 @@
+/* home.css */
+/* Styles for the MyShop home page. */
+/* Shows categories filter bar, search box, and product cards grid. */
+
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
+* {
+    margin: 0;                          /* remove default margin */
+    padding: 0;                         /* remove default padding */
+    box-sizing: border-box;             /* include padding in width */
+    font-family: Arial, sans-serif;     /* default font */
+}
+
+body {
+    background-color: #f5f5f5;          /* light grey background */
+    color: #333;                        /* dark text */
+}
+
+/* ─── Navbar ───────────────────────────────────────────────────────────────── */
+.navbar {
+    background-color: #1a1a1a;          /* dark navbar */
+    padding: 14px 30px;                 /* inner spacing */
+    display: flex;                      /* side by side layout */
+    justify-content: space-between;     /* logo left, links right */
+    align-items: center;                /* vertically centered */
+}
+
+.navbar .logo {
+    color: #c0392b;                     /* red logo */
+    font-size: 22px;                    /* logo size */
+    font-weight: bold;                  /* bold */
+    text-decoration: none;              /* no underline */
+}
+
+.navbar .nav-links a {
+    color: #ccc;                        /* grey links */
+    text-decoration: none;              /* no underline */
+    margin-left: 20px;                  /* space between links */
+    font-size: 14px;                    /* link size */
+}
+
+.navbar .nav-links a:hover {
+    color: #fff;                        /* white on hover */
+}
+
+/* ─── Search Bar ───────────────────────────────────────────────────────────── */
+.search-bar {
+    display: flex;                      /* input and button side by side */
+    justify-content: center;            /* center horizontally */
+    padding: 25px 20px 10px;            /* spacing around */
+    gap: 10px;                          /* space between input and button */
+}
+
+.search-bar input {
+    width: 400px;                       /* search input width */
+    padding: 10px 15px;                 /* inner spacing */
+    border: 1px solid #ddd;             /* light border */
+    border-radius: 6px;                 /* rounded corners */
+    font-size: 14px;                    /* text size */
+    outline: none;                      /* remove default outline */
+}
+
+.search-bar input:focus {
+    border-color: #c0392b;              /* red border on focus */
+}
+
+.search-bar button {
+    padding: 10px 20px;                 /* button spacing */
+    background-color: #c0392b;          /* red button */
+    color: #fff;                        /* white text */
+    border: none;                       /* no border */
+    border-radius: 6px;                 /* rounded */
+    cursor: pointer;                    /* pointer cursor */
+    font-size: 14px;                    /* text size */
+}
+
+.search-bar button:hover {
+    background-color: #a93226;          /* darker on hover */
+}
+
+/* ─── Category Filter ──────────────────────────────────────────────────────── */
+.categories-bar {
+    display: flex;                      /* buttons in a row */
+    flex-wrap: wrap;                    /* wrap to next line if needed */
+    gap: 10px;                          /* space between buttons */
+    padding: 15px 30px;                 /* outer spacing */
+    justify-content: center;            /* center buttons */
+}
+
+.cat-btn {
+    padding: 8px 18px;                  /* button spacing */
+    border: 2px solid #c0392b;          /* red border */
+    background-color: #fff;             /* white background */
+    color: #c0392b;                     /* red text */
+    border-radius: 20px;                /* pill shape */
+    cursor: pointer;                    /* pointer cursor */
+    font-size: 13px;                    /* text size */
+    transition: all 0.2s;              /* smooth hover */
+}
+
+.cat-btn:hover,
+.cat-btn.active {
+    background-color: #c0392b;          /* red background when active */
+    color: #fff;                        /* white text */
+}
+
+/* ─── Products Grid ────────────────────────────────────────────────────────── */
+.products-grid {
+    display: grid;                                              /* grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* responsive columns */
+    gap: 20px;                                                  /* space between cards */
+    padding: 20px 30px 40px;                                    /* outer spacing */
+}
+
+/* ─── Product Card ─────────────────────────────────────────────────────────── */
+.product-card {
+    background-color: #fff;             /* white card */
+    border-radius: 8px;                 /* rounded corners */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);  /* soft shadow */
+    overflow: hidden;                   /* clip image corners */
+    transition: transform 0.2s;         /* lift on hover */
+}
+
+.product-card:hover {
+    transform: translateY(-4px);        /* lift card on hover */
+}
+
+.product-card img {
+    width: 100%;                        /* full width image */
+    height: 180px;                      /* fixed height */
+    object-fit: cover;                  /* crop to fit */
+}
+
+.product-card .card-body {
+    padding: 12px;                      /* inner spacing */
+}
+
+.product-card .card-body h3 {
+    font-size: 15px;                    /* product name size */
+    margin-bottom: 5px;                 /* space below */
+    color: #1a1a1a;                     /* dark text */
+}
+
+.product-card .card-body .category {
+    font-size: 12px;                    /* small category text */
+    color: #999;                        /* grey */
+    margin-bottom: 8px;                 /* space below */
+}
+
+.product-card .card-body .price {
+    font-size: 16px;                    /* price size */
+    font-weight: bold;                  /* bold */
+    color: #c0392b;                     /* red price */
+    margin-bottom: 10px;                /* space below */
+}
+
+.product-card .card-body .view-btn {
+    display: block;                     /* full width button */
+    text-align: center;                 /* center text */
+    padding: 8px;                       /* button spacing */
+    background-color: #1a1a1a;          /* dark button */
+    color: #fff;                        /* white text */
+    text-decoration: none;              /* no underline */
+    border-radius: 5px;                 /* rounded */
+    font-size: 13px;                    /* text size */
+    transition: background 0.2s;        /* smooth hover */
+}
+
+.product-card .card-body .view-btn:hover {
+    background-color: #c0392b;          /* red on hover */
+}
+
+/* ─── No Results Message ───────────────────────────────────────────────────── */
+.no-results {
+    text-align: center;                 /* center text */
+    color: #999;                        /* grey */
+    font-size: 15px;                    /* text size */
+    padding: 40px;                      /* spacing */
+    grid-column: 1 / -1;               /* span all columns */
+}

@@ -2,7 +2,7 @@
 # This file handles all product-related routes.
 # It allows adding products, getting products, and managing categories.
 
-from flask import Blueprint, request, jsonify, current_app   # flask tools
+from flask import Blueprint, request, jsonify, current_app ,send_from_directory   # flask tools
 import mysql.connector                                        # MySQL connector
 import os                                                     # for file paths
 
@@ -92,3 +92,54 @@ def delete_product(product_id):
     cursor.execute("DELETE FROM products WHERE id = %s", (product_id,))  # delete
     db.commit()                                              # save changes
     return jsonify({"message": "Product deleted successfully"})           # return success
+
+
+ # @ 5/4/2026
+
+# ─── Get Single Product ───────────────────────────────────────────────────────
+# Returns details of one product by its id
+# Called by product.js when the user opens a product page
+@products_bp.route('/get_product/<int:product_id>')
+def get_product(product_id):
+    db, cursor = get_db()                                        # connect to database
+    cursor.execute("""
+        SELECT p.id, p.name, p.description, p.price, p.quantity, p.image, c.name
+        FROM products p
+        LEFT JOIN categories c ON p.category_id = c.id
+        WHERE p.id = %s
+    """, (product_id,))                                          # get product by id
+    p = cursor.fetchone()                                        # fetch the row
+
+    if not p:                                                    # product not found
+        return jsonify({"error": "Product not found"}), 404      # return 404
+
+    return jsonify({                                             # return product data
+        "id":          p[0],                                     # product id
+        "name":        p[1],                                     # product name
+        "description": p[2],                                     # description
+        "price":       float(p[3]),                              # price as float
+        "quantity":    p[4],                                     # available quantity
+        "image":       p[5],                                     # image filename
+        "category":    p[6]                                      # category name
+    })
+
+# ─── Home Page Route ──────────────────────────────────────────────────────────
+# GET → show the home page
+@products_bp.route('/home')
+def home_page():
+    return send_from_directory(current_app.static_folder, 'home.html')  # serve home page
+
+# ─── Product Page Route ───────────────────────────────────────────────────────
+# GET → show the product details page
+@products_bp.route('/product')
+def product_page():
+    return send_from_directory(current_app.static_folder, 'product.html')  # serve product page
+
+
+
+# ─── Serve Product Images ─────────────────────────────────────────────────────
+# This route lets the browser load images stored in frontend/images/
+@products_bp.route('/frontend/images/<filename>')
+def serve_image(filename):
+    images_folder = os.path.join(os.path.dirname(__file__), '..', '..', 'frontend', 'images')  # path to images folder
+    return send_from_directory(images_folder, filename)  # serve the image file    

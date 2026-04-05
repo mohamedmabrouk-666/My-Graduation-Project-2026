@@ -1,0 +1,42 @@
+<!-- home.html -->
+<!-- This is the main shop page shown to users after login. -->
+<!-- It displays all products with category filter and search. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">                                  <!-- character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- responsive -->
+    <title>MyShop - Home</title>                            <!-- page title -->
+    <link rel="stylesheet" href="/frontend/css/home.css">   <!-- link stylesheet -->
+</head>
+<body>
+
+    <!-- ── Navbar ──────────────────────────────────────────────────────────── -->
+    <nav class="navbar">
+        <a href="/home" class="logo">MyShop</a>             <!-- store logo -->
+        <div class="nav-links">
+            <a href="#">Cart</a>                            <!-- cart link (future) -->
+            <a href="/login">Logout</a>                     <!-- logout link -->
+        </div>
+    </nav>
+
+    <!-- ── Search Bar ──────────────────────────────────────────────────────── -->
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for products...">  <!-- search input -->
+        <button onclick="searchProducts()">Search</button>  <!-- search button -->
+    </div>
+
+    <!-- ── Category Filter ─────────────────────────────────────────────────── -->
+    <div class="categories-bar" id="categories-bar">
+        <!-- category buttons loaded here by home.js -->
+    </div>
+
+    <!-- ── Products Grid ───────────────────────────────────────────────────── -->
+    <div class="products-grid" id="products-grid">
+        <!-- product cards loaded here by home.js -->
+    </div>
+
+    <script src="/frontend/js/home.js"></script>            <!-- link home JS -->
+</body>
+</html>
